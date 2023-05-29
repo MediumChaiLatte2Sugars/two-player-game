@@ -1,5 +1,5 @@
 require_relative 'player'
-require_relative 'turn'
+require_relative 'math_question'
 
 class MathGame
 
@@ -18,12 +18,12 @@ class MathGame
     while winner == nil
       puts "----- NEW TURN ------"
 
-      turn = Turn.new
-      puts "#{current_player}:"+ turn.question.get_prompt
+      question = MathQuestion.new
+      puts "#{current_player}:"+ question.get_prompt
       print ">"
       answer = gets.chomp
 
-      if answer == turn.question.answer
+      if answer == question.answer
         puts "#{current_player}:Bingo! You got it!"
       else
         puts "#{current_player}:Yikes, wrong answer!"
