@@ -1,9 +1,11 @@
+require_relative "math_question"
+
 class Turn
 
   attr_reader :question
 
   def initialize
-    @question = { prompt: "Placeholder question", answer: "placeholder answer"}
+    @question = MathQuestion.new
   end
 
 end

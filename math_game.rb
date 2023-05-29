@@ -19,11 +19,11 @@ class MathGame
       puts "----- NEW TURN ------"
 
       turn = Turn.new
-      puts "#{current_player}:"+ turn.question[:prompt] + "?"
+      puts "#{current_player}:"+ turn.question.get_prompt
       print ">"
       answer = gets.chomp
 
-      if answer == turn.question[:answer]
+      if answer == turn.question.answer
         puts "#{current_player}:Bingo! You got it!"
       else
         puts "#{current_player}:Yikes, wrong answer!"
