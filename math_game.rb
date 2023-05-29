@@ -20,11 +20,19 @@ class MathGame
 
       turn = Turn.new
       puts "#{current_player}:"+ turn.question[:prompt] + "?"
+      print ">"
       answer = gets.chomp
 
       if answer == turn.question[:answer]
         @winner = @current_player
+        puts "#{current_player}:Bingo! You got it!"
+      else
+        puts "#{current_player}:Yikes, wrong answer!"
       end
+
+      # Display current player stats
+      puts "----- CURRENT SCORES ------"
+      puts "#{@player1}: #{@player1.score}  #{@player2}: #{@player2.score}"
 
        # Switch current_player to the next player
        @current_player = (@current_player == @player1) ? @player2 : @player1
