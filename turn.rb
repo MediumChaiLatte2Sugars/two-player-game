@@ -1,9 +1,8 @@
 class Turn
 
-  attr_reader :current_player, :question
+  attr_reader :question
 
-  def initialize(current_player)
-    @current_player = current_player
+  def initialize
     @question = { prompt: "Placeholder question", answer: "placeholder answer"}
   end
 
