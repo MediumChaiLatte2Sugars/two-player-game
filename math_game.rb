@@ -1,4 +1,5 @@
 require_relative 'player'
+require_relative 'turn'
 
 class MathGame
 
@@ -11,9 +12,20 @@ class MathGame
   end
 
   def play
-    puts "Welcome #{@player1.name} and #{@player2.name}!"
+    puts "Welcome #{@player1} and #{@player2}!"
 
-    # announce_winner
+    while winner == nil
+      turn = Turn.new(@player1)
+      puts turn.question[:prompt] + "?"
+      answer = gets.chomp
+
+      if answer == turn.question[:answer]
+        @winner = turn.current_player
+      end
+
+    end
+
+    announce_winner
   end
 
   def announce_winner
