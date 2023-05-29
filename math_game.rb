@@ -24,10 +24,14 @@ class MathGame
       answer = gets.chomp
 
       if answer == turn.question[:answer]
-        @winner = @current_player
         puts "#{current_player}:Bingo! You got it!"
       else
         puts "#{current_player}:Yikes, wrong answer!"
+        current_player.lose_life
+      end
+
+      if current_player.lives == 0
+        @winner = (@current_player == @player1) ? @player2 : @player1
       end
 
       # Display current player stats
@@ -43,7 +47,7 @@ class MathGame
   end
 
   def announce_winner
-    puts "#{@winner} wins with a score of #{@winner.lives}/3"
+    puts "#{@winner} wins with a score of #{@winner.score}"
   end
 
   private

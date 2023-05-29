@@ -10,9 +10,11 @@ class Player
 
   def lose_life
     @lives -= 1
+    @score = "#{@lives}/3"
   end
 
   def to_s
     @name
   end
+  
 end
